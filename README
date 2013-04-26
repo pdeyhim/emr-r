@@ -1,0 +1,13 @@
+Example of running R job on AWS Elastic MapReduce
+
+To create a cluster:
+
+elastic-mapreduce  --create --alive --instance-count 2 --instance-type m1.small --stream --input s3://bigdatademo/hadoop-r/test.dat --output s3://s3bucket/dept-delay-month-2/ --mapper s3://bigdatademo/hadoop-r/map.R --reducer s3://bigdatademo/hadoop-r/reduce.R
+
+To add R workload as an additional step:
+
+elastic-mapreduce  -j j-2UPBS2869ZT5H --stream --input s3://bigdatademo/hadoop-r/test.dat --output s3://s3bucket/dept-delay-month-2/ --mapper s3://bigdatademo/hadoop-r/map.R --reducer s3://bigdatademo/hadoop-r/reduce.R
+
+replace: j-2UPBS2869ZT5H with your cluster jobflow ID. 
+
+replace: s3bucket with your own S3 bucket.
